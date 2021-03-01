@@ -11,7 +11,7 @@ env:
   ASOFT_NEXUS_USERNAME: ${{ secrets.ASOFT_NEXUS_USERNAME }}
 
 jobs:
-  color-core:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,5 +33,5 @@ jobs:
         run: ./gradlew publish
         working-directory: .
       - name: Closing and Releasing repositories
-        run: ./gradlew :color-core:closeAndReleaseRepository
+        run: ./gradlew :invoice-core:closeAndReleaseRepository
         working-directory: .
