@@ -1,3 +1,7 @@
+# 0.0.20 : 2021.03.02
+- Updated `cart` from `0.0.10` to `0.0.20`
+- Added currency to invoice
+
 # 0.0.10
 ## Availability
 - Published to maven central
