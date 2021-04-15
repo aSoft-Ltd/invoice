@@ -12,6 +12,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(kotlinx("serialization-json", vers.kotlinx.serialization))
+                api(kotlinx("datetime",vers.kotlinx.datetime))
                 api(asoft("cart-core",vers.asoft.cart))
             }
         }
