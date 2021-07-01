@@ -1,11 +1,18 @@
 package invoice
 
 import kotlinx.serialization.Serializable
+import kotlin.js.JsExport
+import kotlin.js.JsName
 
+@JsExport
 @Serializable
 data class Services(
     val items: List<LineItem>,
 ) {
+
+    @JsName("fromArray")
+    constructor(vararg items: LineItem) : this(items.toList())
+
     @Serializable
     data class LineItem(
         val uid: String,

@@ -5,7 +5,10 @@ import kotlin.js.JsExport
 
 @JsExport
 @Serializable
-data class Creator(
-    val uid: String,
+open class Vendor(
     val name: String
-)
+) {
+    companion object {
+        val GENERIC = Vendor("Generic Vendor")
+    }
+}

@@ -1,7 +1,9 @@
 package invoice
 
 import kotlinx.serialization.Serializable
+import kotlin.js.JsExport
 
+@JsExport
 @Serializable
 data class Aggregate(
     val positives: List<LineItem> = listOf(),

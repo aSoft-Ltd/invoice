@@ -1,16 +1,17 @@
 object vers {
-    val kotlin = "1.4.32"
+    val kotlin = "1.5.20"
     val nexus_staging = "0.22.0"
 
     object asoft {
-        val builders = "1.3.24"
-        val cart = "0.0.20"
-        val invoice = "0.0.30"
-        val expect = "0.0.21"
+        val builders = "1.3.30"
+        val kash = "0.0.10"
+        val contacts = "0.0.10"
+        val invoice = "0.0.40"
+        val expect = "0.0.40"
     }
 
     object kotlinx {
-        val serialization = "1.1.0"
-        val datetime = "0.1.1"
+        val serialization = "1.2.1"
+        val datetime = "0.2.1"
     }
 }

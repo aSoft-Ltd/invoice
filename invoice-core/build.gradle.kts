@@ -7,13 +7,37 @@ plugins {
 }
 
 kotlin {
-    multiplatformLib()
+    jvm {
+        library();
+        withJava()
+        tasks.withType<Test> {
+            useJUnitPlatform()
+        }
+    }
+    js(IR) { library() }
+    val darwinTargets = listOf(
+        macosX64(),
+        iosArm64(),
+//        iosArm32(),
+        iosX64(),
+        watchosArm32(),
+        watchosArm64(),
+//        watchosX86(),
+        tvosArm64(),
+        tvosX64()
+    )
+
+    val linuxTargets = listOf(
+        linuxX64()
+    )
     sourceSets {
         val commonMain by getting {
             dependencies {
                 api(kotlinx("serialization-json", vers.kotlinx.serialization))
-                api(kotlinx("datetime",vers.kotlinx.datetime))
-                api(asoft("cart-core",vers.asoft.cart))
+                api(kotlinx("datetime", vers.kotlinx.datetime))
+                api(asoft("email-core",vers.asoft.contacts))
+                api(asoft("phone-core",vers.asoft.contacts))
+                api(asoft("kash-core", vers.asoft.kash))
             }
         }
 
@@ -27,5 +51,5 @@ kotlin {
 
 aSoftOSSLibrary(
     version = vers.asoft.invoice,
-    description = "A platfrom agnostic representation of invoices"
+    description = "A platform agnostic representation of invoices"
 )
