@@ -18,11 +18,11 @@ kotlin {
     val darwinTargets = listOf(
         macosX64(),
         iosArm64(),
-//        iosArm32(),
+        iosArm32(),// comment this out if IDEA can't resolve source sets
         iosX64(),
         watchosArm32(),
         watchosArm64(),
-//        watchosX86(),
+        watchosX86(), // comment this out if IDEA can't resolve source sets
         tvosArm64(),
         tvosX64()
     )
@@ -35,8 +35,8 @@ kotlin {
             dependencies {
                 api(kotlinx("serialization-json", vers.kotlinx.serialization))
                 api(kotlinx("datetime", vers.kotlinx.datetime))
-                api(asoft("email-core",vers.asoft.contacts))
-                api(asoft("phone-core",vers.asoft.contacts))
+                api(asoft("email-core", vers.asoft.contacts))
+                api(asoft("phone-core", vers.asoft.contacts))
                 api(asoft("kash-core", vers.asoft.kash))
             }
         }
