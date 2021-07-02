@@ -12,12 +12,12 @@ public class AddressJavaTest {
                 "Tanzania",
                 "Dar Es Salaam",
                 "Bunju",
-                new Phone("254711111122"),
+                new Phone(711111122),
                 new Email("andy@lamax.net")
         );
 
         var address2 = new Address.Contacts(
-                new Phone("254711111122"),
+                new Phone("255711111122"),
                 new Email("andy@lamax.net")
         );
 

@@ -1,34 +1,52 @@
 package invoice
 
 import kash.Currency
+import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.plus
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 import kotlin.js.JsExport
+import kotlin.js.JsName
 import kotlin.jvm.JvmOverloads
 
 @JsExport
 @Serializable
-data class Invoice(
+data class Invoice @JvmOverloads constructor(
     val uid: String,
     val header: Header,
     val body: Body,
-    val logs: List<Status>
+    val logs: List<Status> = listOf()
 ) {
     @Serializable
     data class Header @JvmOverloads constructor(
         val sender: Sender,
         val receiver: Receiver,
-        val createdOn: LocalDate,
-        val dueOn: LocalDate,
         val currency: Currency,
-        val vendor: Vendor? = null
+        val createdOn: LocalDate,
+        val dueOn: LocalDate = createdOn + DatePeriod(days = 30),
+        val vendor: Vendor = Vendor.GENERIC
     )
 
     @Serializable
-    data class Body(
-        val products: Products = Products(),
-        val services: Services = Services(),
-        val tasks: Tasks = Tasks(),
-        val aggregate: Aggregate = Aggregate()
-    )
+    class Body(val items: List<LineItem>) : Calculable {
+        @JsName("fromArray")
+        constructor(vararg items: LineItem) : this(items.toList())
+
+        override val costBeforeDiscount: Long get() = items.sumOf { it.costBeforeDiscount }
+
+        override val discount: Long get() = items.sumOf { it.discount }
+
+        @Transient
+        val taxRates = run {
+            val rates = mutableMapOf<Tax, Long>()
+            for (item in items) {
+                val prev = rates.getOrPut(item.tax) { 0 }
+                rates[item.tax] = prev + item.taxAmount
+            }
+            rates
+        }
+
+        override val taxAmount: Long get() = taxRates.values.sum()
+    }
 }
