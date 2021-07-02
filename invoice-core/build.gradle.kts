@@ -18,11 +18,11 @@ kotlin {
     val darwinTargets = listOf(
         macosX64(),
         iosArm64(),
-        iosArm32(),// comment this out if IDEA can't resolve source sets
+        iosArm32(),
         iosX64(),
         watchosArm32(),
         watchosArm64(),
-        watchosX86(), // comment this out if IDEA can't resolve source sets
+        watchosX86(),
         tvosArm64(),
         tvosX64()
     )
