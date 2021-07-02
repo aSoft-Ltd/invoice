@@ -23,11 +23,11 @@ object TestUtils {
     @JvmOverloads
     fun makeBody(tax1: Tax = Tax.ZERO, tax2: Tax = tax1): Body {
         return Body(
-            LineItem.Product(UNSET, "Test Product 1", 100000, 1, tax1),
-            LineItem.Product(UNSET, "Test Product 2", 200000, 2, tax2),
-            LineItem.Product(UNSET, "Test Product 3", 300000, 3, tax1),
-            LineItem.Product(UNSET, "Test Product 4", 400000, 4, tax2),
-            LineItem.Product(UNSET, "Test Product 5", 500000, 5, tax1)
+            LineItem.Product(UNSET, "Test Product 1", 100000, 1, tax1.copy()),
+            LineItem.Product(UNSET, "Test Product 2", 200000, 2, tax2.copy()),
+            LineItem.Product(UNSET, "Test Product 3", 300000, 3, tax1.copy()),
+            LineItem.Product(UNSET, "Test Product 4", 400000, 4, tax2.copy()),
+            LineItem.Product(UNSET, "Test Product 5", 500000, 5, tax1.copy())
         )
     }
 }
