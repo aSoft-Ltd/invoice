@@ -4,7 +4,7 @@ object vers {
 
     object asoft {
         val builders = "1.3.30"
-        val kash = "0.0.10"
+        val kash = "0.0.11"
         val contacts = "0.0.10"
         val invoice = "0.0.40"
         val expect = "0.0.40"
