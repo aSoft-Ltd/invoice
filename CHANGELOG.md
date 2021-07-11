@@ -1,3 +1,8 @@
+# 0.0.50 : 2021.07.11
+
+- Upgraded serialization to 1.2.2
+- Added TaxAgency class
+
 # 0.0.40 : 2021.07.02
 
 - Updated gradle from 7.0 to 7.0.2
