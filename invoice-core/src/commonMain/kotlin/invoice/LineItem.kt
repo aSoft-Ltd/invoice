@@ -20,7 +20,7 @@ sealed class LineItem : Calculable {
         val name: String,
         val unitPrice: Long,
         val quantity: Int,
-        override val tax: Tax = Tax.ZERO,
+        override val tax: Tax = Tax.GENERIC_ZERO,
         val unitDiscount: Long = 0,
         val images: List<String> = listOf()
     ) : LineItem() {
@@ -44,7 +44,7 @@ sealed class LineItem : Calculable {
         val uid: String,
         val details: String,
         val amount: Long,
-        override val tax: Tax = Tax.ZERO,
+        override val tax: Tax = Tax.GENERIC_ZERO,
         override val discount: Long = 0,
         val logo: String? = null,
     ) : LineItem() {
@@ -58,7 +58,7 @@ sealed class LineItem : Calculable {
         val unitRate: Long,
         val unit: String,
         val quantity: Int,
-        override val tax: Tax = Tax.ZERO,
+        override val tax: Tax = Tax.GENERIC_ZERO,
         val unitDiscount: Long = 0
     ) : LineItem() {
         val subTotal get() = unitRate * quantity
@@ -70,7 +70,7 @@ sealed class LineItem : Calculable {
     data class Generic(
         val details: String,
         val amount: Long,
-        override val tax: Tax = Tax.ZERO,
+        override val tax: Tax = Tax.GENERIC_ZERO,
     ) : LineItem() {
         override val costBeforeDiscount = amount
         override val discount = 0L

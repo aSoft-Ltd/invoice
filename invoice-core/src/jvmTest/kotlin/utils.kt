@@ -21,7 +21,7 @@ object TestUtils {
 
     @JvmStatic
     @JvmOverloads
-    fun makeBody(tax1: Tax = Tax.ZERO, tax2: Tax = tax1): Body {
+    fun makeBody(tax1: Tax = Tax.GENERIC_ZERO, tax2: Tax = tax1): Body {
         return Body(
             LineItem.Product(UNSET, "Test Product 1", 100000, 1, tax1.copy()),
             LineItem.Product(UNSET, "Test Product 2", 200000, 2, tax2.copy()),

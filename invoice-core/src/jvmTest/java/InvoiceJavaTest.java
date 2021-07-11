@@ -14,7 +14,7 @@ public class InvoiceJavaTest {
         expect(body1.getCostBeforeTax()).toBe(5500000L);
         expect(body1.getCostAfterTax()).toBe(6050000L);
 
-        var body2 = TestUtils.makeBody(Tax.ZERO);
+        var body2 = TestUtils.makeBody(Tax.GENERIC_ZERO);
         expect(body2.getCostBeforeTax()).toBe(5500000L);
         expect(body2.getCostBeforeTax()).toBe(body2.getCostAfterTax());
 

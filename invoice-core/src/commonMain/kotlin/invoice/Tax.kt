@@ -9,7 +9,8 @@ data class Tax(
     /**
      * must be between 0 and 100
      */
-    val rate: Int
+    val rate: Int,
+    val agency: TaxAgency
 ) {
     init {
         require(rate in 0..100) { "rate must be between 0 and 100 " }
@@ -17,6 +18,6 @@ data class Tax(
 
     companion object {
         @JvmField
-        val ZERO = Tax("ZERO", 0)
+        val GENERIC_ZERO = Tax("ZERO", 0, TaxAgency.GENERIC)
     }
 }
