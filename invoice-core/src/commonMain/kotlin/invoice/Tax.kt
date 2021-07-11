@@ -1,8 +1,10 @@
 package invoice
 
 import kotlinx.serialization.Serializable
+import kotlin.js.JsExport
 import kotlin.jvm.JvmField
 
+@JsExport
 @Serializable
 data class Tax(
     val name: String,

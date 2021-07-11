@@ -11,7 +11,7 @@ object vers {
     }
 
     object kotlinx {
-        val serialization = "1.2.1"
+        val serialization = "1.2.2"
         val datetime = "0.2.1"
     }
 }
