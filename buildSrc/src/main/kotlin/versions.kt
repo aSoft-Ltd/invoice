@@ -6,7 +6,7 @@ object vers {
         val builders = "1.3.30"
         val kash = "0.0.11"
         val contacts = "0.0.10"
-        val invoice = "0.0.50"
+        val invoice = "0.0.60"
         val expect = "0.0.40"
     }
 
