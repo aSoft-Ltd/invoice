@@ -13,8 +13,7 @@ import kotlin.jvm.JvmOverloads
 data class Invoice @JvmOverloads constructor(
     val uid: String,
     val header: Header,
-    val body: Body,
-    val logs: List<Status> = listOf()
+    val body: Body
 ) {
     @Serializable
     data class Header @JvmOverloads constructor(
@@ -23,7 +22,8 @@ data class Invoice @JvmOverloads constructor(
         val currency: Currency,
         val createdOn: LocalDate = Clock.System.now().toLocalDateTime(TimeZone.UTC).date,
         val dueOn: LocalDate = createdOn + DatePeriod(days = 30),
-        val vendor: Vendor = Vendor.GENERIC
+        val vendor: Vendor = Vendor.GENERIC,
+        val ref: VendorReference = VendorReference.UNSET,
     )
 
     @Serializable

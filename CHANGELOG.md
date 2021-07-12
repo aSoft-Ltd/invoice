@@ -1,3 +1,8 @@
+# 0.0.60 : 2021.07.13
+
+- Added VendorReference to Sender, Receiver, LineItems and Invoice.Header
+- Decoupled Payments from Invoices
+
 # 0.0.50 : 2021.07.11
 
 - Upgraded serialization to 1.2.2
