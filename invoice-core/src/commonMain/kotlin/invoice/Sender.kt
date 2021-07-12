@@ -10,5 +10,6 @@ data class Sender @JvmOverloads constructor(
     val uid: String,
     val name: String,
     val address: Address,
+    val ref: VendorReference = VendorReference.UNSET,
     val logo: String? = null
 )
