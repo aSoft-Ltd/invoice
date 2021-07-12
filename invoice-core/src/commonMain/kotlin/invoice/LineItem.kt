@@ -21,6 +21,7 @@ sealed class LineItem : Calculable {
         val unitPrice: Long,
         val quantity: Int,
         override val tax: Tax = Tax.GENERIC_ZERO,
+        val ref: VendorReference = VendorReference.UNSET,
         val unitDiscount: Long = 0,
         val images: List<String> = listOf()
     ) : LineItem() {
@@ -45,6 +46,7 @@ sealed class LineItem : Calculable {
         val details: String,
         val amount: Long,
         override val tax: Tax = Tax.GENERIC_ZERO,
+        val ref: VendorReference = VendorReference.UNSET,
         override val discount: Long = 0,
         val logo: String? = null,
     ) : LineItem() {
@@ -59,6 +61,7 @@ sealed class LineItem : Calculable {
         val unit: String,
         val quantity: Int,
         override val tax: Tax = Tax.GENERIC_ZERO,
+        val ref: VendorReference = VendorReference.UNSET,
         val unitDiscount: Long = 0
     ) : LineItem() {
         val subTotal get() = unitRate * quantity
@@ -67,10 +70,11 @@ sealed class LineItem : Calculable {
     }
 
     @Serializable
-    data class Generic(
+    data class Generic @JvmOverloads constructor(
         val details: String,
         val amount: Long,
         override val tax: Tax = Tax.GENERIC_ZERO,
+        val ref: VendorReference = VendorReference.UNSET,
     ) : LineItem() {
         override val costBeforeDiscount = amount
         override val discount = 0L

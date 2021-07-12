@@ -8,11 +8,11 @@ A platform agnostic representation of carts
 
 ```kotlin
 dependencies {
-    implementation("tz.co.asoft:invoice-core:0.0.50") // please use the latest version possible
+    implementation("tz.co.asoft:invoice-core:0.0.60") // please use the latest version possible
 }
 ```
 
-[badge-maven]: https://img.shields.io/maven-central/v/tz.co.asoft/invoice-core/0.0.50?style=flat
+[badge-maven]: https://img.shields.io/maven-central/v/tz.co.asoft/invoice-core/0.0.60?style=flat
 
 [badge-mpp]: https://img.shields.io/badge/kotlin-multiplatform-blue?style=flat
 
